@@ -40,6 +40,14 @@ BuildRequires:  python3-six
 %description
 Generic Key Manager interface for OpenStack
 
+%package -n python2-castellan
+Summary:    OpenStack common configuration library
+%{?python_provide:%python_provide python2-castellan}
+Provides:   python-castellan = %{upstream_version}
+
+%description -n python2-castellan
+Generic Key Manager interface for OpenStack
+
 %if 0%{?with_python3}
 %package -n python3-castellan
 Summary:        Generic Key Manager interface for OpenStack
@@ -89,7 +97,7 @@ popd
 #popd
 #%endif
 
-%files
+%files -n python2-castellan
 %doc README.rst LICENSE
 %{python_sitelib}/castellan
 %{python_sitelib}/castellan-*.egg-info
