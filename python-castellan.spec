@@ -7,7 +7,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.2.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Generic Key Manager interface for OpenStack
 
 License:        ASL 2.0
@@ -121,6 +121,9 @@ rm -rf html/.{doctrees,buildinfo}
 
 
 %changelog
+* Tue Nov 10 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.2.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Changes/python3.5
+
 * Wed Sep 16 2015 Haïkel Guémar <hguemar@fedoraproject.org> - 0.2.1-1
 - Upstream 0.2.1
 
