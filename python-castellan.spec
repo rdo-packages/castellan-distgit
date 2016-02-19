@@ -4,7 +4,7 @@
 
 Name:           python-castellan
 Version:        XXX
-Release:        XXX{?dist}
+Release:        XXX
 Summary:        Generic Key Manager interface for OpenStack
 
 Group:          Development/Languages
