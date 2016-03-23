@@ -1,137 +1,115 @@
-# Created by pyp2rpm-2.0.0
-%global pypi_name castellan
-
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %if 0%{?fedora}
 %global with_python3 1
 %endif
 
-Name:           python-%{pypi_name}
-Version:        0.3.1
-Release:        2%{?dist}
+Name:           python-castellan
+Version:        0.4.0
+Release:        1%{?dist}
 Summary:        Generic Key Manager interface for OpenStack
 
+Group:          Development/Languages
 License:        ASL 2.0
-URL:            http://glance.openstack.org
-Source0:        https://pypi.python.org/packages/source/c/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+URL:            http://git.openstack.org/cgit/openstack/castellan
+Source0:        http://pypi.python.org/packages/source/c/castellan/castellan-%{version}%{?milestone}.tar.gz
 BuildArch:      noarch
- 
-BuildRequires:  python2-devel
+
+BuildRequires:  python-devel
 BuildRequires:  python-setuptools
 BuildRequires:  python-pbr
-BuildRequires:  python-sphinx
-BuildRequires:  python-oslo-sphinx
+BuildRequires:  python-mock
+BuildRequires:  python-six
+BuildRequires:  python-testrepository
 
-Requires:       python-pbr
-Requires:       python-babel
-Requires:       python-cryptography >= 1.0
+Requires:       python-setuptools
+Requires:       python-six
 Requires:       python-oslo-config
 Requires:       python-oslo-context
 Requires:       python-oslo-log
 Requires:       python-oslo-policy
 Requires:       python-oslo-serialization
 Requires:       python-oslo-utils
-Requires:       python-six >= 1.9.0
+
+%if 0%{?with_python3}
+BuildRequires:  python3-devel
+BuildRequires:  python3-setuptools
+BuildRequires:  python3-pbr
+BuildRequires:  python3-mock
+BuildRequires:  python3-six
+%endif
 
 %description
 Generic Key Manager interface for OpenStack
 
+%package -n python2-castellan
+Summary:    OpenStack common configuration library
+%{?python_provide:%python_provide python2-castellan}
+Provides:   python-castellan = %{upstream_version}
 
-%package -n     python2-%{pypi_name}
-Summary:        Generic Key Manager interface for OpenStack
-%{?python_provide:%python_provide python2-%{pypi_name}}
-
-%description -n python2-%{pypi_name}
+%description -n python2-castellan
 Generic Key Manager interface for OpenStack
-
 
 %if 0%{?with_python3}
-%package -n     python3-%{pypi_name}
+%package -n python3-castellan
 Summary:        Generic Key Manager interface for OpenStack
-%{?python_provide:%python_provide python3-%{pypi_name}}
+Group:          Development/Libraries
 
-BuildRequires:  python3-devel
-BuildRequires:  python3-setuptools
-BuildRequires:  python3-pbr
-BuildRequires:  python3-sphinx
+Requires:       python3-setuptools
+Requires:       python-six
 
-# FIXME: some runtime deps have not been ported to python3
-Requires:       python3-pbr
-Requires:       python3-babel
-Requires:       python3-cryptography
-Requires:       python3-oslo-config
-Requires:       python3-oslo-context
-#Requires:       python3-oslo-log
-Requires:       python3-oslo-policy
-Requires:       python3-oslo-serialization
-#Requires:       python3-oslo-utils
-Requires:       python3-six
-
-%description -n python3-%{pypi_name}
+%description -n python3-castellan
 Generic Key Manager interface for OpenStack
 %endif
-
-%package -n python-%{pypi_name}-doc
-Summary:        castellan documentation
-
-%description -n python-%{pypi_name}-doc
-Documentation for castellan
-
 
 %prep
-%autosetup -n %{pypi_name}-%{version}
-# Remove bundled egg-info
-rm -rf %{pypi_name}.egg-info
+%setup -q -n castellan-%{upstream_version}
+
+%if 0%{?with_python3}
+rm -rf %{py3dir}
+cp -a . %{py3dir}
+%endif
 
 %build
-%{__python2} setup.py build
+%{__python} setup.py build
+
 %if 0%{?with_python3}
+pushd %{py3dir}
 %{__python3} setup.py build
+popd
 %endif
-# generate html docs 
-sphinx-build doc/source html
-# remove the sphinx-build leftovers
-rm -rf html/.{doctrees,buildinfo}
 
 %install
 %if 0%{?with_python3}
-%{__python3} setup.py install --skip-build --root %{buildroot}
+pushd %{py3dir}
+%{__python3} setup.py install -O1 --skip-build --root=%{buildroot}
+popd
 %endif
-%{__python2} setup.py install --skip-build --root %{buildroot}
 
+%{__python} setup.py install --skip-build --root %{buildroot}
 
-%files -n python2-%{pypi_name}
-%license LICENSE
-%doc doc/source/readme.rst README.rst
-%{python2_sitelib}/%{pypi_name}
-%{python2_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
+%check
+#TODO: reenable when commented test requirements above are available
+#
+#PYTHONPATH=. nosetests
+#
+#%if 0%{?with_python3}
+#pushd %{py3dir}
+#PYTHONPATH=. nosetests-%{python3_version}
+#popd
+#%endif
 
+%files -n python2-castellan
+%doc README.rst LICENSE
+%{python_sitelib}/castellan
+%{python_sitelib}/castellan-*.egg-info
 
 %if 0%{?with_python3}
-%files -n python3-%{pypi_name} 
-%license LICENSE
-%doc doc/source/readme.rst README.rst
-%{python3_sitelib}/%{pypi_name}
-%{python3_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
+%files -n python3-castellan
+%doc README.rst LICENSE
+%{python3_sitelib}/castellan
+%{python3_sitelib}/castellan-*.egg-info
 %endif
 
-
-%files -n python-%{pypi_name}-doc
-%doc html
-%license LICENSE
-
-
 %changelog
-* Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 0.3.1-2
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
-
-* Fri Jan 22 2016 Alan Pevec <alan.pevec@redhat.com> 0.3.1-1
-- Update to 0.3.1
-
-* Tue Nov 10 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.2.1-2
-- Rebuilt for https://fedoraproject.org/wiki/Changes/python3.5
-
-* Wed Sep 16 2015 Haïkel Guémar <hguemar@fedoraproject.org> - 0.2.1-1
-- Upstream 0.2.1
-
-* Thu Sep 03 2015 Haïkel Guémar <hguemar@fedoraproject.org> - 0.2.0-1
-- Initial package.
+* Wed Mar 23 2016 RDO <rdo-list@redhat.com> 0.4.0-0.1
+-  Rebuild for Mitaka 
