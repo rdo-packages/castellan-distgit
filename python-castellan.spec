@@ -1,16 +1,17 @@
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %if 0%{?fedora}
 %global with_python3 1
 %endif
 
 Name:           python-castellan
-Version:        XXX
-Release:        XXX
+Version:        0.4.0
+Release:        1%{?dist}
 Summary:        Generic Key Manager interface for OpenStack
 
 Group:          Development/Languages
 License:        ASL 2.0
 URL:            http://git.openstack.org/cgit/openstack/castellan
-Source0:        https://pypi.io/packages/source/c/castellan/castellan-%{version}.tar.gz
+Source0:        http://pypi.python.org/packages/source/c/castellan/castellan-%{version}%{?milestone}.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  python-devel
@@ -110,3 +111,5 @@ popd
 %endif
 
 %changelog
+* Wed Mar 23 2016 RDO <rdo-list@redhat.com> 0.4.0-0.1
+-  Rebuild for Mitaka 
