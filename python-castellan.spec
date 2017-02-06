@@ -4,8 +4,8 @@
 %endif
 
 Name:           python-castellan
-Version:        0.4.0
-Release:        1%{?dist}
+Version:        XXX
+Release:        XXX
 Summary:        Generic Key Manager interface for OpenStack
 
 Group:          Development/Languages
@@ -111,5 +111,3 @@ popd
 %endif
 
 %changelog
-* Wed Mar 23 2016 RDO <rdo-list@redhat.com> 0.4.0-0.1
--  Rebuild for Mitaka 
