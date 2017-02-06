@@ -21,14 +21,18 @@ BuildRequires:  python-mock
 BuildRequires:  python-six
 BuildRequires:  python-testrepository
 
+Requires:       python-babel >= 2.3.4
+Requires:       python-barbicanclient >= 4.0.0
+Requires:       python-cryptography
+Requires:       python-keystoneauth1 >= 2.18.0
 Requires:       python-setuptools
 Requires:       python-six
-Requires:       python-oslo-config
-Requires:       python-oslo-context
-Requires:       python-oslo-log
-Requires:       python-oslo-policy
-Requires:       python-oslo-serialization
-Requires:       python-oslo-utils
+Requires:       python-oslo-config >= 2:3.14.0
+Requires:       python-oslo-context >= 2.9.0
+Requires:       python-oslo-i18n >= 2.1.0
+Requires:       python-oslo-log >= 3.11.0
+Requires:       python-oslo-utils >= 3.18.0
+Requires:       python-pbr
 
 %if 0%{?with_python3}
 BuildRequires:  python3-devel
