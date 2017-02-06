@@ -32,7 +32,6 @@ Requires:       python-oslo-context >= 2.9.0
 Requires:       python-oslo-i18n >= 2.1.0
 Requires:       python-oslo-log >= 3.11.0
 Requires:       python-oslo-utils >= 3.18.0
-Requires:       python-pbr
 
 %if 0%{?with_python3}
 BuildRequires:  python3-devel
