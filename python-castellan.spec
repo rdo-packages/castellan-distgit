@@ -11,7 +11,7 @@ Summary:        Generic Key Manager interface for OpenStack
 Group:          Development/Languages
 License:        ASL 2.0
 URL:            http://git.openstack.org/cgit/openstack/castellan
-Source0:        http://pypi.python.org/packages/source/c/castellan/castellan-%{version}%{?milestone}.tar.gz
+Source0:        https://tarballs.openstack.org/castellan/castellan-%{upstream_version}.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  python-devel
