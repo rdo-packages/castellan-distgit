@@ -24,23 +24,14 @@ BuildRequires:  python-testrepository
 Requires:       python-babel >= 2.3.4
 Requires:       python-barbicanclient >= 4.0.0
 Requires:       python-cryptography
-Requires:       python-keystoneauth1 >= 2.18.0
-Requires:       python-setuptools
+Requires:       python-keystoneauth1 >= 3.1.0
 Requires:       python-six
-Requires:       python-oslo-config >= 2:3.14.0
-Requires:       python-oslo-context >= 2.9.0
+Requires:       python-oslo-config >= 2:4.0.0
+Requires:       python-oslo-context >= 2.14.0
 Requires:       python-oslo-i18n >= 2.1.0
-Requires:       python-oslo-log >= 3.11.0
-Requires:       python-oslo-utils >= 3.18.0
+Requires:       python-oslo-log >= 3.22.0
+Requires:       python-oslo-utils >= 3.20.0
 Requires:       python-pbr
-
-%if 0%{?with_python3}
-BuildRequires:  python3-devel
-BuildRequires:  python3-setuptools
-BuildRequires:  python3-pbr
-BuildRequires:  python3-mock
-BuildRequires:  python3-six
-%endif
 
 %description
 Generic Key Manager interface for OpenStack
@@ -58,8 +49,28 @@ Generic Key Manager interface for OpenStack
 Summary:        Generic Key Manager interface for OpenStack
 Group:          Development/Libraries
 
-Requires:       python3-setuptools
-Requires:       python-six
+BuildRequires:  python3-devel
+BuildRequires:  python3-setuptools
+BuildRequires:  python3-pbr
+BuildRequires:  python3-mock
+BuildRequires:  python3-six
+
+
+Requires:       python3-six
+Requires:       python3-pbr
+Requires:       python3-mock
+Requires:       python3-babel >= 2.3.4
+Requires:       python3-barbicanclient >= 4.0.0
+Requires:       python3-cryptography
+Requires:       python3-keystoneauth1 >= 3.1.0
+Requires:       python3-six
+Requires:       python3-oslo-config >= 2:4.0.0
+Requires:       python3-oslo-context >= 2.14.0
+Requires:       python3-oslo-i18n >= 2.1.0
+Requires:       python3-oslo-log >= 3.22.0
+Requires:       python3-oslo-utils >= 3.20.0
+Requires:       python3-pbr
+
 
 %description -n python3-castellan
 Generic Key Manager interface for OpenStack
