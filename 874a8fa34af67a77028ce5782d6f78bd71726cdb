@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a890539_9c53f16b",
+        "filename": "python-castellan.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-07T12:35:18Z",
+      "side": 1,
+      "message": "extra trailing space",
+      "range": {
+        "startLine": 30,
+        "startChar": 45,
+        "endLine": 30,
+        "endChar": 46
+      },
+      "revId": "874a8fa34af67a77028ce5782d6f78bd71726cdb",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a890539_fc4a35ab",
+        "filename": "python-castellan.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-07T12:35:18Z",
+      "side": 1,
+      "message": "python3-six",
+      "range": {
+        "startLine": 60,
+        "startChar": 16,
+        "endLine": 60,
+        "endChar": 22
+      },
+      "revId": "874a8fa34af67a77028ce5782d6f78bd71726cdb",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a890539_dc4d79c6",
+        "filename": "python-castellan.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-07T12:35:18Z",
+      "side": 1,
+      "message": "Missing python3 requirements, could you add all python3 Requires?",
+      "revId": "874a8fa34af67a77028ce5782d6f78bd71726cdb",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
