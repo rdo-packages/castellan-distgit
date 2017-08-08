@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a890539_1690bdeb",
+        "filename": "python-castellan.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-08T09:54:35Z",
+      "side": 1,
+      "message": "Missing:\n\nBuildRequires:  python3-testrepository",
+      "revId": "846f1bb7c526f2ecf0bad5e5ec501afff71da95b",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a890539_f69251f5",
+        "filename": "python-castellan.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-08T09:54:35Z",
+      "side": 1,
+      "message": "Duplicated with line 66",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 26
+      },
+      "revId": "846f1bb7c526f2ecf0bad5e5ec501afff71da95b",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a890539_d68555ae",
+        "filename": "python-castellan.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-08T09:54:35Z",
+      "side": 1,
+      "message": "duplicated with line 72",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 27
+      },
+      "revId": "846f1bb7c526f2ecf0bad5e5ec501afff71da95b",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a890539_b688c9c7",
+        "filename": "python-castellan.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-08T09:54:35Z",
+      "side": 1,
+      "message": "python3-mock is not Requires, only BuildRequires",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 28
+      },
+      "revId": "846f1bb7c526f2ecf0bad5e5ec501afff71da95b",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
