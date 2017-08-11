@@ -4,8 +4,8 @@
 %endif
 
 Name:           python-castellan
-Version:        XXX
-Release:        XXX
+Version:        0.12.0
+Release:        1%{?dist}
 Summary:        Generic Key Manager interface for OpenStack
 
 Group:          Development/Languages
@@ -123,3 +123,6 @@ popd
 %endif
 
 %changelog
+* Fri Aug 11 2017 Alfredo Moralejo <amoralej@redhat.com> 0.12.0-1
+- Update to 0.12.0
+
