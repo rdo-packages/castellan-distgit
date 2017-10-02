@@ -20,6 +20,14 @@ BuildRequires:  python-pbr
 BuildRequires:  python-mock
 BuildRequires:  python-six
 BuildRequires:  python-testrepository
+BuildRequires:  python-testtools
+BuildRequires:  python-oslo-config
+BuildRequires:  python-oslo-log
+BuildRequires:  python-oslo-utils
+BuildRequires:  python-oslotest
+BuildRequires:  python-barbicanclient
+BuildRequires:  python-cryptography
+BuildRequires:  python-keystoneauth1
 
 Requires:       python-babel >= 2.3.4
 Requires:       python-barbicanclient >= 4.0.0
@@ -55,6 +63,14 @@ BuildRequires:  python3-pbr
 BuildRequires:  python3-mock
 BuildRequires:  python3-six
 BuildRequires:  python3-testrepository
+BuildRequires:  python3-testtools
+BuildRequires:  python3-oslo-config
+BuildRequires:  python3-oslo-log
+BuildRequires:  python3-oslo-utils
+BuildRequires:  python3-oslotest
+BuildRequires:  python3-barbicanclient
+BuildRequires:  python3-cryptography
+BuildRequires:  python3-keystoneauth1
 
 Requires:       python3-six
 Requires:       python3-pbr
@@ -100,15 +116,10 @@ popd
 %{__python} setup.py install --skip-build --root %{buildroot}
 
 %check
-#TODO: reenable when commented test requirements above are available
-#
-#PYTHONPATH=. nosetests
-#
-#%if 0%{?with_python3}
-#pushd %{py3dir}
-#PYTHONPATH=. nosetests-%{python3_version}
-#popd
-#%endif
+%if 0%{?with_python3}
+OS_TEST_PATH=./castellan/tests/unit %{__python3} setup.py test
+%endif
+OS_TEST_PATH=./castellan/tests/unit %{__python2} setup.py test
 
 %files -n python2-castellan
 %doc README.rst LICENSE
@@ -123,3 +134,4 @@ popd
 %endif
 
 %changelog
+
