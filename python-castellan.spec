@@ -14,32 +14,37 @@ URL:            http://git.openstack.org/cgit/openstack/castellan
 Source0:        https://tarballs.openstack.org/castellan/castellan-%{upstream_version}.tar.gz
 BuildArch:      noarch
 
-BuildRequires:  python-devel
-BuildRequires:  python-setuptools
-BuildRequires:  python-pbr
-BuildRequires:  python-mock
-BuildRequires:  python-six
+BuildRequires:  python2-devel
+BuildRequires:  python2-setuptools
+BuildRequires:  python2-pbr
+BuildRequires:  python2-mock
+BuildRequires:  python2-six
+BuildRequires:  python2-testtools
+BuildRequires:  python2-oslo-config
+BuildRequires:  python2-oslo-log
+BuildRequires:  python2-oslo-utils
+BuildRequires:  python2-oslotest
+BuildRequires:  python2-barbicanclient
+BuildRequires:  python2-cryptography
+BuildRequires:  python2-keystoneauth1
+%if 0%{?fedora} > 0
+BuildRequires:  python2-testrepository
+%else
 BuildRequires:  python-testrepository
-BuildRequires:  python-testtools
-BuildRequires:  python-oslo-config
-BuildRequires:  python-oslo-log
-BuildRequires:  python-oslo-utils
-BuildRequires:  python-oslotest
-BuildRequires:  python-barbicanclient
-BuildRequires:  python-cryptography
-BuildRequires:  python-keystoneauth1
+%endif
 
-Requires:       python-babel >= 2.3.4
-Requires:       python-barbicanclient >= 4.0.0
-Requires:       python-cryptography
-Requires:       python-keystoneauth1 >= 3.1.0
-Requires:       python-six
-Requires:       python-oslo-config >= 2:4.0.0
-Requires:       python-oslo-context >= 2.14.0
-Requires:       python-oslo-i18n >= 2.1.0
-Requires:       python-oslo-log >= 3.22.0
-Requires:       python-oslo-utils >= 3.20.0
-Requires:       python-pbr
+Requires:       python2-babel >= 2.3.4
+Requires:       python2-barbicanclient >= 4.0.0
+Requires:       python2-cryptography
+Requires:       python2-keystoneauth1 >= 3.3.0
+Requires:       python2-six
+Requires:       python2-oslo-config >= 2:5.1.0
+Requires:       python2-oslo-context >= 2.19.2
+Requires:       python2-oslo-i18n >= 3.15.3
+Requires:       python2-oslo-log >= 3.36.0
+Requires:       python2-oslo-utils >= 3.33.0
+Requires:       python2-stevedore >= 1.20.0
+Requires:       python2-pbr
 
 %description
 Generic Key Manager interface for OpenStack
@@ -77,12 +82,13 @@ Requires:       python3-pbr
 Requires:       python3-babel >= 2.3.4
 Requires:       python3-barbicanclient >= 4.0.0
 Requires:       python3-cryptography
-Requires:       python3-keystoneauth1 >= 3.1.0
-Requires:       python3-oslo-config >= 2:4.0.0
-Requires:       python3-oslo-context >= 2.14.0
-Requires:       python3-oslo-i18n >= 2.1.0
-Requires:       python3-oslo-log >= 3.22.0
-Requires:       python3-oslo-utils >= 3.20.0
+Requires:       python3-keystoneauth1 >= 3.3.0
+Requires:       python3-oslo-config >= 2:5.1.0
+Requires:       python3-oslo-context >= 2.19.2
+Requires:       python3-oslo-i18n >= 3.15.3
+Requires:       python3-oslo-log >= 3.36.0
+Requires:       python3-oslo-utils >= 3.33.0
+Requires:       python3-stevedore >= 1.20.0
 
 
 %description -n python3-castellan
