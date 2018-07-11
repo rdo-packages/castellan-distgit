@@ -141,3 +141,4 @@ OS_TEST_PATH=./castellan/tests/unit %{__python2} setup.py test
 
 %changelog
 
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/castellan/commit/?id=1695612627f60465c7c6247df9a41ba43badbfb9
