@@ -27,11 +27,7 @@ BuildRequires:  python2-oslotest
 BuildRequires:  python2-barbicanclient
 BuildRequires:  python2-cryptography
 BuildRequires:  python2-keystoneauth1
-%if 0%{?fedora} > 0
-BuildRequires:  python2-testrepository
-%else
-BuildRequires:  python-testrepository
-%endif
+BuildRequires:  python2-stestr
 
 Requires:       python2-babel >= 2.3.4
 Requires:       python2-barbicanclient >= 4.0.0
@@ -67,7 +63,7 @@ BuildRequires:  python3-setuptools
 BuildRequires:  python3-pbr
 BuildRequires:  python3-mock
 BuildRequires:  python3-six
-BuildRequires:  python3-testrepository
+BuildRequires:  python3-stestr
 BuildRequires:  python3-testtools
 BuildRequires:  python3-oslo-config
 BuildRequires:  python3-oslo-log
@@ -98,28 +94,19 @@ Generic Key Manager interface for OpenStack
 %prep
 %setup -q -n castellan-%{upstream_version}
 
-%if 0%{?with_python3}
-rm -rf %{py3dir}
-cp -a . %{py3dir}
-%endif
-
 %build
-%{__python} setup.py build
+%py2_build
 
 %if 0%{?with_python3}
-pushd %{py3dir}
-%{__python3} setup.py build
-popd
+%py3_build
 %endif
 
 %install
 %if 0%{?with_python3}
-pushd %{py3dir}
-%{__python3} setup.py install -O1 --skip-build --root=%{buildroot}
-popd
+%py3_install
 %endif
 
-%{__python} setup.py install --skip-build --root %{buildroot}
+%py2_install
 
 %check
 %if 0%{?with_python3}
@@ -129,8 +116,8 @@ OS_TEST_PATH=./castellan/tests/unit %{__python2} setup.py test
 
 %files -n python2-castellan
 %doc README.rst LICENSE
-%{python_sitelib}/castellan
-%{python_sitelib}/castellan-*.egg-info
+%{python2_sitelib}/castellan
+%{python2_sitelib}/castellan-*.egg-info
 
 %if 0%{?with_python3}
 %files -n python3-castellan
@@ -140,4 +127,3 @@ OS_TEST_PATH=./castellan/tests/unit %{__python2} setup.py test
 %endif
 
 %changelog
-
