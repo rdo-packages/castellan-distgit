@@ -14,6 +14,7 @@ URL:            http://git.openstack.org/cgit/openstack/castellan
 Source0:        https://tarballs.openstack.org/castellan/castellan-%{upstream_version}.tar.gz
 BuildArch:      noarch
 
+BuildRequires:  openstack-macros
 BuildRequires:  python2-devel
 BuildRequires:  python2-setuptools
 BuildRequires:  python2-pbr
@@ -34,11 +35,11 @@ BuildRequires:  python-testrepository
 %endif
 
 Requires:       python2-babel >= 2.3.4
-Requires:       python2-barbicanclient >= 4.0.0
+Requires:       python2-barbicanclient >= 4.5.2
 Requires:       python2-cryptography
-Requires:       python2-keystoneauth1 >= 3.3.0
+Requires:       python2-keystoneauth1 >= 3.4.0 
 Requires:       python2-six
-Requires:       python2-oslo-config >= 2:5.1.0
+Requires:       python2-oslo-config >= 2:5.2.0
 Requires:       python2-oslo-context >= 2.19.2
 Requires:       python2-oslo-i18n >= 3.15.3
 Requires:       python2-oslo-log >= 3.36.0
@@ -80,10 +81,10 @@ BuildRequires:  python3-keystoneauth1
 Requires:       python3-six
 Requires:       python3-pbr
 Requires:       python3-babel >= 2.3.4
-Requires:       python3-barbicanclient >= 4.0.0
+Requires:       python3-barbicanclient >= 4.5.2
 Requires:       python3-cryptography
-Requires:       python3-keystoneauth1 >= 3.3.0
-Requires:       python3-oslo-config >= 2:5.1.0
+Requires:       python3-keystoneauth1 >= 3.4.0 
+Requires:       python3-oslo-config >= 2:5.2.0
 Requires:       python3-oslo-context >= 2.19.2
 Requires:       python3-oslo-i18n >= 3.15.3
 Requires:       python3-oslo-log >= 3.36.0
@@ -96,7 +97,8 @@ Generic Key Manager interface for OpenStack
 %endif
 
 %prep
-%setup -q -n castellan-%{upstream_version}
+%autosetup -n castellan-%{upstream_version} -S git
+%py_req_cleanup
 
 %if 0%{?with_python3}
 rm -rf %{py3dir}
