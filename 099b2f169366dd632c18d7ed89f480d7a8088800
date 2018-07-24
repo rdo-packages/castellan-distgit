@@ -22,6 +22,30 @@
       "revId": "099b2f169366dd632c18d7ed89f480d7a8088800",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9abe1de1_cb563506",
+        "filename": "python-castellan.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2018-07-24T11:24:00Z",
+      "side": 1,
+      "message": ":(",
+      "parentUuid": "9abe1de1_6b3729e4",
+      "range": {
+        "startLine": 41,
+        "startChar": 46,
+        "endLine": 41,
+        "endChar": 47
+      },
+      "revId": "099b2f169366dd632c18d7ed89f480d7a8088800",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
