@@ -4,7 +4,7 @@
 %endif
 
 Name:           python-castellan
-Version:        0.18.0
+Version:        0.19.0
 Release:        1%{?dist}
 Summary:        Generic Key Manager interface for OpenStack
 
@@ -143,6 +143,9 @@ OS_TEST_PATH=./castellan/tests/unit %{__python2} setup.py test
 %endif
 
 %changelog
+* Wed Aug 29 2018 RDO <dev@lists.rdoproject.org> 0.19.0-1
+- Update to 0.19.0
+
 * Wed Aug 08 2018 RDO <dev@lists.rdoproject.org> 0.18.0-1
 - Update to 0.18.0
 
