@@ -1,5 +1,5 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
-%if 0%{?fedora}
+%if 0%{?fedora} || 0%{?rhel} > 7
 %global with_python3 1
 %endif
 
@@ -29,7 +29,7 @@ BuildRequires:  python2-oslotest
 BuildRequires:  python2-barbicanclient
 BuildRequires:  python2-cryptography
 BuildRequires:  python2-keystoneauth1
-%if 0%{?fedora} > 0
+%if 0%{?fedora} || 0%{?rhel} > 7
 BuildRequires:  python2-testrepository
 %else
 BuildRequires:  python-testrepository
