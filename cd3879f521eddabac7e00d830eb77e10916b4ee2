@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ad0253b_2d74989a",
+        "filename": "python-castellan.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2019-01-15T05:22:15Z",
+      "side": 1,
+      "message": "this can be moved out of condional, if patch needs revision(looking for failures.) good to move it out.",
+      "revId": "cd3879f521eddabac7e00d830eb77e10916b4ee2",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
