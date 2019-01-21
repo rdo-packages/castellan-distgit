@@ -107,7 +107,7 @@ cp -a . %{py3dir}
 %endif
 
 %build
-%{__python} setup.py build
+%{__python2} setup.py build
 
 %if 0%{?with_python3}
 pushd %{py3dir}
@@ -122,18 +122,18 @@ pushd %{py3dir}
 popd
 %endif
 
-%{__python} setup.py install --skip-build --root %{buildroot}
+%{__python2} setup.py install --skip-build --root %{buildroot}
 
 %check
 %if 0%{?with_python3}
-PYTHON=python2 OS_TEST_PATH=./castellan/tests/unit %{__python3} setup.py test
+PYTHON=python3 OS_TEST_PATH=./castellan/tests/unit %{__python3} setup.py test
 %endif
-PYTHON=python3 OS_TEST_PATH=./castellan/tests/unit %{__python2} setup.py test
+PYTHON=python2 OS_TEST_PATH=./castellan/tests/unit %{__python2} setup.py test
 
 %files -n python2-castellan
 %doc README.rst LICENSE
-%{python_sitelib}/castellan
-%{python_sitelib}/castellan-*.egg-info
+%{python2_sitelib}/castellan
+%{python2_sitelib}/castellan-*.egg-info
 
 %if 0%{?with_python3}
 %files -n python3-castellan
