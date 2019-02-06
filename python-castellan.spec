@@ -35,6 +35,14 @@ BuildRequires:  python2-testrepository
 BuildRequires:  python-testrepository
 %endif
 
+%description
+Generic Key Manager interface for OpenStack
+
+%package -n python2-castellan
+Summary:    OpenStack common configuration library
+%{?python_provide:%python_provide python2-castellan}
+Provides:   python-castellan = %{upstream_version}
+
 Requires:       python2-babel >= 2.3.4
 Requires:       python2-barbicanclient >= 4.5.2
 Requires:       python2-cryptography
@@ -47,14 +55,6 @@ Requires:       python2-oslo-log >= 3.36.0
 Requires:       python2-oslo-utils >= 3.33.0
 Requires:       python2-stevedore >= 1.20.0
 Requires:       python2-pbr
-
-%description
-Generic Key Manager interface for OpenStack
-
-%package -n python2-castellan
-Summary:    OpenStack common configuration library
-%{?python_provide:%python_provide python2-castellan}
-Provides:   python-castellan = %{upstream_version}
 
 %description -n python2-castellan
 Generic Key Manager interface for OpenStack
