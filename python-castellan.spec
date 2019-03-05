@@ -48,7 +48,7 @@ Requires:       python2-barbicanclient >= 4.5.2
 Requires:       python2-cryptography
 Requires:       python2-keystoneauth1 >= 3.4.0
 Requires:       python2-six
-Requires:       python2-oslo-config >= 2:5.2.0
+Requires:       python2-oslo-config >= 2:6.4.0
 Requires:       python2-oslo-context >= 2.19.2
 Requires:       python2-oslo-i18n >= 3.15.3
 Requires:       python2-oslo-log >= 3.36.0
@@ -85,7 +85,7 @@ Requires:       python3-babel >= 2.3.4
 Requires:       python3-barbicanclient >= 4.5.2
 Requires:       python3-cryptography
 Requires:       python3-keystoneauth1 >= 3.4.0
-Requires:       python3-oslo-config >= 2:5.2.0
+Requires:       python3-oslo-config >= 2:6.4.0
 Requires:       python3-oslo-context >= 2.19.2
 Requires:       python3-oslo-i18n >= 3.15.3
 Requires:       python3-oslo-log >= 3.36.0
