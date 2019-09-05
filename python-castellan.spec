@@ -29,6 +29,7 @@ BuildRequires:  python2-oslotest
 BuildRequires:  python2-barbicanclient
 BuildRequires:  python2-cryptography
 BuildRequires:  python2-keystoneauth1
+BuildRequires:  python2-requests
 %if 0%{?fedora} || 0%{?rhel} > 7
 BuildRequires:  python2-testrepository
 %else
@@ -55,6 +56,7 @@ Requires:       python2-oslo-log >= 3.36.0
 Requires:       python2-oslo-utils >= 3.33.0
 Requires:       python2-stevedore >= 1.20.0
 Requires:       python2-pbr
+Requires:       python2-requests >= 2.14.2
 
 %description -n python2-castellan
 Generic Key Manager interface for OpenStack
@@ -78,6 +80,7 @@ BuildRequires:  python3-oslotest
 BuildRequires:  python3-barbicanclient
 BuildRequires:  python3-cryptography
 BuildRequires:  python3-keystoneauth1
+BuildRequires:  python3-requests
 
 Requires:       python3-six
 Requires:       python3-pbr
@@ -91,6 +94,7 @@ Requires:       python3-oslo-i18n >= 3.15.3
 Requires:       python3-oslo-log >= 3.36.0
 Requires:       python3-oslo-utils >= 3.33.0
 Requires:       python3-stevedore >= 1.20.0
+Requires:       python3-requests >= 2.14.2
 
 
 %description -n python3-castellan
