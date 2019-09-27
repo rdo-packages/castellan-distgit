@@ -1,7 +1,18 @@
-%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+# Macros for py2/py3 compatibility
 %if 0%{?fedora} || 0%{?rhel} > 7
-%global with_python3 1
+%global pyver %{python3_pkgversion}
+%else
+%global pyver 2
 %endif
+%global pyver_bin python%{pyver}
+%global pyver_sitelib %python%{pyver}_sitelib
+%global pyver_install %py%{pyver}_install
+%global pyver_build %py%{pyver}_build
+# End of macros for py2/py3 compatibility
+
+%global pkg_name castellan
+
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           python-castellan
 Version:        XXX
@@ -11,140 +22,70 @@ Summary:        Generic Key Manager interface for OpenStack
 Group:          Development/Languages
 License:        ASL 2.0
 URL:            http://git.openstack.org/cgit/openstack/castellan
-Source0:        https://tarballs.openstack.org/castellan/castellan-%{upstream_version}.tar.gz
+Source0:        https://tarballs.openstack.org/%{pkg_name}/%{pkg_name}-%{upstream_version}.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  openstack-macros
 BuildRequires:  git
-BuildRequires:  python2-devel
-BuildRequires:  python2-setuptools
-BuildRequires:  python2-pbr
-BuildRequires:  python2-mock
-BuildRequires:  python2-six
-BuildRequires:  python2-testtools
-BuildRequires:  python2-oslo-config
-BuildRequires:  python2-oslo-log
-BuildRequires:  python2-oslo-utils
-BuildRequires:  python2-oslotest
-BuildRequires:  python2-barbicanclient
-BuildRequires:  python2-cryptography
-BuildRequires:  python2-keystoneauth1
-BuildRequires:  python2-requests
-%if 0%{?fedora} || 0%{?rhel} > 7
-BuildRequires:  python2-testrepository
-%else
-BuildRequires:  python-testrepository
-%endif
+BuildRequires:  python%{pyver}-devel
+BuildRequires:  python%{pyver}-setuptools
+BuildRequires:  python%{pyver}-pbr
+BuildRequires:  python%{pyver}-mock
+BuildRequires:  python%{pyver}-six
+BuildRequires:  python%{pyver}-testtools
+BuildRequires:  python%{pyver}-oslo-config
+BuildRequires:  python%{pyver}-oslo-log
+BuildRequires:  python%{pyver}-oslo-utils
+BuildRequires:  python%{pyver}-oslotest
+BuildRequires:  python%{pyver}-barbicanclient
+BuildRequires:  python%{pyver}-cryptography
+BuildRequires:  python%{pyver}-keystoneauth1
+BuildRequires:  python%{pyver}-requests
+BuildRequires:  python%{pyver}-testrepository
 
 %description
 Generic Key Manager interface for OpenStack
 
-%package -n python2-castellan
+%package -n python%{pyver}-%{pkg_name}
 Summary:    OpenStack common configuration library
-%{?python_provide:%python_provide python2-castellan}
-Provides:   python-castellan = %{upstream_version}
-
-Requires:       python2-babel >= 2.3.4
-Requires:       python2-barbicanclient >= 4.5.2
-Requires:       python2-cryptography
-Requires:       python2-keystoneauth1 >= 3.4.0
-Requires:       python2-six
-Requires:       python2-oslo-config >= 2:6.4.0
-Requires:       python2-oslo-context >= 2.19.2
-Requires:       python2-oslo-i18n >= 3.15.3
-Requires:       python2-oslo-log >= 3.36.0
-Requires:       python2-oslo-utils >= 3.33.0
-Requires:       python2-stevedore >= 1.20.0
-Requires:       python2-pbr
-Requires:       python2-requests >= 2.14.2
-
-%description -n python2-castellan
-Generic Key Manager interface for OpenStack
-
-%if 0%{?with_python3}
-%package -n python3-castellan
-Summary:        Generic Key Manager interface for OpenStack
-Group:          Development/Libraries
-
-BuildRequires:  python3-devel
-BuildRequires:  python3-setuptools
-BuildRequires:  python3-pbr
-BuildRequires:  python3-mock
-BuildRequires:  python3-six
-BuildRequires:  python3-testrepository
-BuildRequires:  python3-testtools
-BuildRequires:  python3-oslo-config
-BuildRequires:  python3-oslo-log
-BuildRequires:  python3-oslo-utils
-BuildRequires:  python3-oslotest
-BuildRequires:  python3-barbicanclient
-BuildRequires:  python3-cryptography
-BuildRequires:  python3-keystoneauth1
-BuildRequires:  python3-requests
-
-Requires:       python3-six
-Requires:       python3-pbr
-Requires:       python3-babel >= 2.3.4
-Requires:       python3-barbicanclient >= 4.5.2
-Requires:       python3-cryptography
-Requires:       python3-keystoneauth1 >= 3.4.0
-Requires:       python3-oslo-config >= 2:6.4.0
-Requires:       python3-oslo-context >= 2.19.2
-Requires:       python3-oslo-i18n >= 3.15.3
-Requires:       python3-oslo-log >= 3.36.0
-Requires:       python3-oslo-utils >= 3.33.0
-Requires:       python3-stevedore >= 1.20.0
-Requires:       python3-requests >= 2.14.2
-
-
-%description -n python3-castellan
-Generic Key Manager interface for OpenStack
+%{?python_provide:%python_provide python%{pyver}-%{pkg_name}}
+%if %{pyver} == 3
+Obsoletes: python2-%{pkg_name} < %{version}-%{release}
 %endif
+
+Requires:       python%{pyver}-babel >= 2.3.4
+Requires:       python%{pyver}-barbicanclient >= 4.5.2
+Requires:       python%{pyver}-cryptography
+Requires:       python%{pyver}-keystoneauth1 >= 3.4.0
+Requires:       python%{pyver}-six
+Requires:       python%{pyver}-oslo-config >= 2:6.4.0
+Requires:       python%{pyver}-oslo-context >= 2.19.2
+Requires:       python%{pyver}-oslo-i18n >= 3.15.3
+Requires:       python%{pyver}-oslo-log >= 3.36.0
+Requires:       python%{pyver}-oslo-utils >= 3.33.0
+Requires:       python%{pyver}-stevedore >= 1.20.0
+Requires:       python%{pyver}-pbr
+Requires:       python%{pyver}-requests >= 2.14.2
+
+%description -n python%{pyver}-%{pkg_name}
+Generic Key Manager interface for OpenStack
 
 %prep
 %autosetup -n castellan-%{upstream_version} -S git
 %py_req_cleanup
 
-%if 0%{?with_python3}
-rm -rf %{py3dir}
-cp -a . %{py3dir}
-%endif
-
 %build
-%{__python2} setup.py build
-
-%if 0%{?with_python3}
-pushd %{py3dir}
-%{__python3} setup.py build
-popd
-%endif
+%{pyver_bin} setup.py build
 
 %install
-%if 0%{?with_python3}
-pushd %{py3dir}
-%{__python3} setup.py install -O1 --skip-build --root=%{buildroot}
-popd
-%endif
-
-%{__python2} setup.py install --skip-build --root %{buildroot}
+%{pyver_install}
 
 %check
-%if 0%{?with_python3}
-PYTHON=python3 OS_TEST_PATH=./castellan/tests/unit %{__python3} setup.py test
-%endif
-PYTHON=python2 OS_TEST_PATH=./castellan/tests/unit %{__python2} setup.py test
+PYTHON=python%{pyver} OS_TEST_PATH=./castellan/tests/unit %{pyver_bin} setup.py test
 
-%files -n python2-castellan
+%files -n python%{pyver}-%{pkg_name}
 %doc README.rst LICENSE
-%{python2_sitelib}/castellan
-%{python2_sitelib}/castellan-*.egg-info
-
-%if 0%{?with_python3}
-%files -n python3-castellan
-%doc README.rst LICENSE
-%{python3_sitelib}/castellan
-%{python3_sitelib}/castellan-*.egg-info
-%endif
+%{pyver_sitelib}/castellan
+%{pyver_sitelib}/castellan-*.egg-info
 
 %changelog
-
