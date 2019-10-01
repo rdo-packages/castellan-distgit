@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7ade724_3d7f0ed4",
+        "filename": "python-castellan.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2019-10-01T09:38:19Z",
+      "side": 1,
+      "message": "I\u0027d just add the obsoletes to python2-xxx for packages containing user-faced executables, not for every library.",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 53
+      },
+      "revId": "0490cd29128da13c580756c3bc3f2dacf2877416",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
