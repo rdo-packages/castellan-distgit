@@ -86,3 +86,4 @@ PYTHON=python%{pyver} OS_TEST_PATH=./castellan/tests/unit %{pyver_bin} setup.py 
 %{pyver_sitelib}/castellan-*.egg-info
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/castellan/commit/?id=3ccf918c98d95cebc804b148bfae7e252d732d75
