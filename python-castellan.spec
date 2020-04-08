@@ -31,7 +31,6 @@ BuildRequires:  python%{pyver}-devel
 BuildRequires:  python%{pyver}-setuptools
 BuildRequires:  python%{pyver}-pbr
 BuildRequires:  python%{pyver}-mock
-BuildRequires:  python%{pyver}-six
 BuildRequires:  python%{pyver}-testtools
 BuildRequires:  python%{pyver}-oslo-config
 BuildRequires:  python%{pyver}-oslo-log
@@ -54,7 +53,6 @@ Requires:       python%{pyver}-babel >= 2.3.4
 Requires:       python%{pyver}-barbicanclient >= 4.5.2
 Requires:       python%{pyver}-cryptography
 Requires:       python%{pyver}-keystoneauth1 >= 3.4.0
-Requires:       python%{pyver}-six
 Requires:       python%{pyver}-oslo-config >= 2:6.4.0
 Requires:       python%{pyver}-oslo-context >= 2.19.2
 Requires:       python%{pyver}-oslo-i18n >= 3.15.3
@@ -62,7 +60,7 @@ Requires:       python%{pyver}-oslo-log >= 3.36.0
 Requires:       python%{pyver}-oslo-utils >= 3.33.0
 Requires:       python%{pyver}-stevedore >= 1.20.0
 Requires:       python%{pyver}-pbr
-Requires:       python%{pyver}-requests >= 2.14.2
+Requires:       python%{pyver}-requests >= 2.18.0
 
 %description -n python%{pyver}-%{service}
 Generic Key Manager interface for OpenStack
