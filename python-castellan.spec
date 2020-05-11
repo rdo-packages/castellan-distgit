@@ -15,8 +15,8 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           python-castellan
-Version:        1.3.1
-Release:        2%{?dist}
+Version:        1.3.2
+Release:        1%{?dist}
 Summary:        Generic Key Manager interface for OpenStack
 
 Group:          Development/Languages
@@ -86,6 +86,9 @@ PYTHON=python%{pyver} OS_TEST_PATH=./castellan/tests/unit %{pyver_bin} setup.py 
 %{pyver_sitelib}/castellan-*.egg-info
 
 %changelog
+* Mon May 11 2020 RDO <dev@lists.rdoproject.org> 1.3.2-1
+- Update to 1.3.2
+
 * Wed Oct 02 2019 Joel Capitao <jcapitao@redhat.com> 1.3.1-2
 - Removed python2 subpackages in no el7 distros
 
