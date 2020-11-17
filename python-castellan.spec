@@ -27,7 +27,7 @@ BuildRequires:  /usr/bin/gpgv2
 %endif
 
 BuildRequires:  openstack-macros
-BuildRequires:  git
+BuildRequires:  git-core
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 BuildRequires:  python3-pbr
