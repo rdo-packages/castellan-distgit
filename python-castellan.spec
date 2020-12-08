@@ -4,7 +4,7 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           python-castellan
-Version:        3.0.2
+Version:        3.0.3
 Release:        1%{?dist}
 Summary:        Generic Key Manager interface for OpenStack
 
@@ -73,6 +73,9 @@ PYTHON=python3 OS_TEST_PATH=./castellan/tests/unit python3 setup.py test
 %{python3_sitelib}/castellan-*.egg-info
 
 %changelog
+* Tue Dec 08 2020 RDO <dev@lists.rdoproject.org> 3.0.3-1
+- Update to 3.0.3
+
 * Mon Jul 13 2020 RDO <dev@lists.rdoproject.org> 3.0.2-1
 - Update to 3.0.2
 
