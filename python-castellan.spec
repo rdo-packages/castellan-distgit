@@ -41,6 +41,7 @@ BuildRequires:  python3-barbicanclient
 BuildRequires:  python3-cryptography
 BuildRequires:  python3-keystoneauth1
 BuildRequires:  python3-requests
+BuildRequires:  python3-requests-mock
 BuildRequires:  python3-testrepository
 
 %description
