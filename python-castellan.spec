@@ -1,13 +1,13 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0x01527a34f0d0080f8a5db8d6eb6c5df21b4b6363
 
 %global service castellan
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           python-castellan
-Version:        XXX
-Release:        XXX
+Version:        3.10.1
+Release:        1%{?dist}
 Summary:        Generic Key Manager interface for OpenStack
 
 Group:          Development/Languages
@@ -19,6 +19,7 @@ Source0:        https://tarballs.openstack.org/%{service}/%{service}-%{upstream_
 Source101:        https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz.asc
 Source102:        https://releases.openstack.org/_static/%{sources_gpg_sign}.txt
 %endif
+Patch0001:      0001-Replace-the-deprecated-argument-tenant.patch
 BuildArch:      noarch
 
 # Required for tarball sources verification
@@ -89,3 +90,6 @@ PYTHON=python3 OS_TEST_PATH=./castellan/tests/unit python3 setup.py test
 %{python3_sitelib}/castellan-*.egg-info
 
 %changelog
+* Mon Mar 14 2022 RDO <dev@lists.rdoproject.org> 3.10.1-1
+- Update to 3.10.1
+

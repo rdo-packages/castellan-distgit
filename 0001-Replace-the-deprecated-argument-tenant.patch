@@ -1,0 +1,58 @@
+From a160e5c8dc2858bd59c786a4718922882f22be28 Mon Sep 17 00:00:00 2001
+From: Joel Capitao <jcapitao@redhat.com>
+Date: Tue, 15 Mar 2022 08:30:04 +0100
+Subject: [PATCH] Replace the deprecated argument tenant
+
+The deprecated argument tenant from RequestContext
+has been removed since [1], so we switch to 'project_id'.
+
+[1] https://review.opendev.org/c/openstack/oslo.context/+/815938
+
+Change-Id: I4e3e4c50ba5d829ed739e278b5286f2bf4808870
+---
+ castellan/tests/unit/test_utils.py | 6 +++---
+ doc/source/user/index.rst          | 2 +-
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/castellan/tests/unit/test_utils.py b/castellan/tests/unit/test_utils.py
+index 00e9346..2ead8ce 100644
+--- a/castellan/tests/unit/test_utils.py
++++ b/castellan/tests/unit/test_utils.py
+@@ -182,18 +182,18 @@ class TestUtils(base.TestCase):
+ 
+     def test_oslo_context_to_keystone_token(self):
+         auth_token_value = '16bd612f28ec479b8ffe8e124fc37b43'
+-        tenant_value = '00c6ef5ad2984af2acd7d42c299935c0'
++        project_id_value = '00c6ef5ad2984af2acd7d42c299935c0'
+ 
+         ctxt = context.RequestContext(
+             auth_token=auth_token_value,
+-            tenant=tenant_value)
++            project_id=project_id_value)
+ 
+         ks_token_context = utils.credential_factory(context=ctxt)
+         ks_token_context_class = ks_token_context.__class__.__name__
+ 
+         self.assertEqual('KeystoneToken', ks_token_context_class)
+         self.assertEqual(auth_token_value, ks_token_context.token)
+-        self.assertEqual(tenant_value, ks_token_context.project_id)
++        self.assertEqual(project_id_value, ks_token_context.project_id)
+ 
+     def test_invalid_auth_type(self):
+         self.config_fixture.config(
+diff --git a/doc/source/user/index.rst b/doc/source/user/index.rst
+index e04d703..cc564e3 100644
+--- a/doc/source/user/index.rst
++++ b/doc/source/user/index.rst
+@@ -107,7 +107,7 @@ that is being abstracted.
+     sess = session.Session()
+ 
+     ctxt = context.RequestContext(auth_token=auth.get_token(sess),
+-                                  tenant=auth.get_project_id(sess))
++                                  project_id=auth.get_project_id(sess))
+ 
+ ctxt can then be passed into any key_manager api call.
+ 
+-- 
+2.35.1
+
