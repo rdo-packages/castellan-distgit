@@ -19,6 +19,9 @@ Source0:        https://tarballs.openstack.org/%{service}/%{service}-%{upstream_
 Source101:        https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz.asc
 Source102:        https://releases.openstack.org/_static/%{sources_gpg_sign}.txt
 %endif
+# TODO(jcapitao): patch below to be removed once
+# https://review.opendev.org/c/openstack/castellan/+/833723 is merged
+Patch0001:      0001-Replace-the-deprecated-argument-tenant.patch
 BuildArch:      noarch
 
 # Required for tarball sources verification
