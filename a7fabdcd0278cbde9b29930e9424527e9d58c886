@@ -33,6 +33,24 @@
       "message": "\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nERROR: test_oslo_context_to_keystone_token (castellan.tests.unit.test_utils.TestUtils)\ncastellan.tests.unit.test_utils.TestUtils.test_oslo_context_to_keystone_token\n----------------------------------------------------------------------\ntesttools.testresult.real._StringException: Traceback (most recent call last):\n  File \"/builddir/build/BUILD/castellan-3.10.1/castellan/tests/unit/test_utils.py\", line 187, in test_oslo_context_to_keystone_token\n    ctxt \u003d context.RequestContext(\n  File \"/usr/lib/python3.9/site-packages/debtcollector/renames.py\", line 41, in decorator\n    return wrapped(*args, **kwargs)\n  File \"/usr/lib/python3.9/site-packages/debtcollector/renames.py\", line 41, in decorator\n    return wrapped(*args, **kwargs)\n  File \"/usr/lib/python3.9/site-packages/debtcollector/renames.py\", line 41, in decorator\n    return wrapped(*args, **kwargs)\n  [Previous line repeated 1 more time]\nTypeError: __init__() got an unexpected keyword argument \u0027tenant\u0027",
       "revId": "a7fabdcd0278cbde9b29930e9424527e9d58c886",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b83ea1af_25182d73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2022-03-15T07:38:22Z",
+      "side": 1,
+      "message": "I proposed a patch upstream https://review.opendev.org/c/openstack/castellan/+/833723 and gonna apply patch at distgit level in the meantime",
+      "parentUuid": "385925bf_fb0005a1",
+      "revId": "a7fabdcd0278cbde9b29930e9424527e9d58c886",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
