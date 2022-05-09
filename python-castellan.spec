@@ -19,7 +19,9 @@ Source0:        https://tarballs.openstack.org/%{service}/%{service}-%{upstream_
 Source101:        https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz.asc
 Source102:        https://releases.openstack.org/_static/%{sources_gpg_sign}.txt
 %endif
+%if "%{version}" == "3.10.1"
 Patch0001:      0001-Replace-the-deprecated-argument-tenant.patch
+%endif
 BuildArch:      noarch
 
 # Required for tarball sources verification
