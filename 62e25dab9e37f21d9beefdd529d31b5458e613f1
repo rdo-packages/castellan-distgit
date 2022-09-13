@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0deee4c_0163c7c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 757
+      },
+      "writtenOn": "2022-09-13T13:07:40Z",
+      "side": 1,
+      "message": "needs python3-barbicanclient",
+      "revId": "62e25dab9e37f21d9beefdd529d31b5458e613f1",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
