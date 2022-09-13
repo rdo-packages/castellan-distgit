@@ -1,13 +1,13 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0xa63ea142678138d1bb15f2e303bdfd64dd164087
 
 %global service castellan
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           python-castellan
-Version:        XXX
-Release:        XXX
+Version:        4.0.0
+Release:        1%{?dist}
 Summary:        Generic Key Manager interface for OpenStack
 
 Group:          Development/Languages
@@ -89,3 +89,6 @@ PYTHON=python3 OS_TEST_PATH=./castellan/tests/unit python3 setup.py test
 %{python3_sitelib}/castellan-*.egg-info
 
 %changelog
+* Tue Sep 13 2022 RDO <dev@lists.rdoproject.org> 4.0.0-1
+- Update to 4.0.0
+
