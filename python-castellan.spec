@@ -51,7 +51,7 @@ Generic Key Manager interface for OpenStack
 Summary:    OpenStack common configuration library
 %{?python_provide:%python_provide python3-%{service}}
 
-Requires:       python3-barbicanclient >= 4.5.2
+Requires:       python3-barbicanclient >= 5.5.0
 Requires:       python3-cryptography
 Requires:       python3-keystoneauth1 >= 3.4.0
 Requires:       python3-oslo-config >= 2:6.4.0
