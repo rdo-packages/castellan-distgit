@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0x22284f69d9eccdf3df7819791c711af193ff8e54
 
 %global service castellan
 
@@ -8,8 +8,8 @@
 %global excluded_brs doc8 bandit pre-commit hacking flake8-import-order pifpaf
 
 Name:           python-castellan
-Version:        XXX
-Release:        XXX
+Version:        5.2.1
+Release:        1%{?dist}
 Summary:        Generic Key Manager interface for OpenStack
 
 Group:          Development/Languages
@@ -79,4 +79,7 @@ done
 %{python3_sitelib}/castellan*.dist-info
 
 %changelog
+* Tue Mar 18 2025 RDO <dev@lists.rdoproject.org> 5.2.1-1
+- Update to 5.2.1
+
 
