@@ -80,3 +80,4 @@ done
 
 %changelog
 
+# REMOVEME: error caused by commit https://opendev.org/openstack/castellan/commit/d0b0d417fda972a719b5cf9f6219086401ed911a
